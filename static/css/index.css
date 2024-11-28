@@ -224,3 +224,33 @@ body {
   gap: .7rem;
   grid-template-columns: 1.4fr 0.3fr 4.0fr 0.3fr;
 }
+
+@media (max-width: 768px) {
+  .columns img {
+    margin: 0 auto; /* Center-align images and GIFs */
+    display: block;
+    max-width: 50%; /* Limit the size of images on mobile for a better layout */
+    height: auto;
+  }
+  #teaser-carousel .carousel-item {
+    width: 100% !important; /* Full-width for mobile */
+    margin: 0 auto;
+  }
+  #teaser-carousel {
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+    flex-direction: column; /* Stack content vertically */
+    width: 100%; /* Ensure each slide takes full width */  
+  
+  }
+}
+
+
+
+#teaser-carousel {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent slides from wrapping to a new line */
+}
+
+#teaser-carousel .carousel-item {
+  flex: 0 0 auto; /* Prevent slides from stretching */
+}

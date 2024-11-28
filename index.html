@@ -438,11 +438,13 @@
         centerMode: false, // Disable peeking at edges
       });
     });
+  
   </script>
 
 <style>
   #teaser-carousel {
-    overflow: hidden; /* Hide anything outside the visible carousel area */
+    overflow: hidden;     /* Hide anything outside the visible carousel area */
+    flex-wrap: nowrap;    
   }
 
   .carousel-item {
@@ -1093,7 +1095,7 @@
       </div>
   
       <!-- Column Headers -->
-      <div class="columns has-text-centered">
+      <div class="columns has-text-centered is-hidden-mobile">
         <div class="column is-two-fifths">
           <h4 class="title is-6">Input</h4>
         </div>
@@ -1104,7 +1106,7 @@
           <h4 class="title is-6">w/ Motion Modes (Ours)</h4>
         </div>
       </div>
-      <div class="columns has-text-centered">
+      <div class="columns has-text-centered is-hidden-mobile">
         <div class="column is-one-fifth">
           <h5 class="title is-7"><b>Image</b></h5>
         </div>
@@ -1123,78 +1125,101 @@
       </div>
   
       <!-- Row 1 for Image to Video -->
-      <div class="columns">
+      <div class="columns is-multiline has-text-centered">
         <div class="column is-one-fifth">
+          <!-- Row Header (Visible only on Mobile) -->
+          <h5 class="title is-7 is-hidden-desktop"><b>Input</b></h5>
           <img src="applications/image_to_video_MOFA/row1_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>User Drag</b></h5>
           <img src="applications/image_to_video_MOFA/row1_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/o Motion Modes</b></h5>
           <img src="applications/image_to_video_MOFA/row1_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>Snapped Drag</b></h5>
           <img src="applications/image_to_video_MOFA/row1_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/ Motion Modes (Ours)</b></h5>
           <img src="applications/image_to_video_MOFA/row1_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
         </div>
       </div>
 
 
-      <div class="columns">
+      <div class="columns is-multiline has-text-centered">
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>Input</b></h5>
           <img src="applications/image_to_video_MOFA/row3_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>User Drag</b></h5>
           <img src="applications/image_to_video_MOFA/row3_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/o Motion Modes</b></h5>
           <img src="applications/image_to_video_MOFA/row3_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>Snapped Drag</b></h5>
           <img src="applications/image_to_video_MOFA/row3_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/ Motion Modes (Ours)</b></h5>
           <img src="applications/image_to_video_MOFA/row3_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
         </div>
       </div>
 
-      <div class="columns">
+      <!-- Row 2 -->
+      <div class="columns is-multiline has-text-centered">
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video_MOFA/row2_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>Input</b></h5>
+          <img src="applications/image_to_video_MOFA/row2_image.jpg" alt="Row 2 - Image" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video_MOFA/row2_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>User Drag</b></h5>
+          <img src="applications/image_to_video_MOFA/row2_user_drag.png" alt="Row 2 - User Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video_MOFA/row2_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/o Motion Modes</b></h5>
+          <img src="applications/image_to_video_MOFA/row2_wo_mm.gif" alt="Row 2 - w/o MM" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video_MOFA/row2_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>Snapped Drag</b></h5>
+          <img src="applications/image_to_video_MOFA/row2_snapped_drag.png" alt="Row 2 - Snapped Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video_MOFA/row2_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/ Motion Modes (Ours)</b></h5>
+          <img src="applications/image_to_video_MOFA/row2_output.gif" alt="Row 2 - Output" style="width: 100%; height: auto;">
         </div>
       </div>
 
-      <div class="columns">
+      <!-- Row 4 -->
+      <div class="columns is-multiline has-text-centered">
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video_MOFA/row4_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>Input</b></h5>
+          <img src="applications/image_to_video_MOFA/row4_image.jpg" alt="Row 4 - Image" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video_MOFA/row4_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>User Drag</b></h5>
+          <img src="applications/image_to_video_MOFA/row4_user_drag.png" alt="Row 4 - User Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video_MOFA/row4_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/o Motion Modes</b></h5>
+          <img src="applications/image_to_video_MOFA/row4_wo_mm.gif" alt="Row 4 - w/o MM" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video_MOFA/row4_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>Snapped Drag</b></h5>
+          <img src="applications/image_to_video_MOFA/row4_snapped_drag.png" alt="Row 4 - Snapped Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video_MOFA/row4_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/ Motion Modes (Ours)</b></h5>
+          <img src="applications/image_to_video_MOFA/row4_output.gif" alt="Row 4 - Output" style="width: 100%; height: auto;">
         </div>
-      </div>  
+      </div>
    
 
       <!-- Subsection: Image to Video -->
@@ -1206,7 +1231,7 @@
       </div>
   
       <!-- Column Headers -->
-      <div class="columns has-text-centered">
+      <div class="columns has-text-centered is-hidden-mobile">
         <div class="column is-two-fifths">
           <h4 class="title is-6">Input</h4>
         </div>
@@ -1217,7 +1242,7 @@
           <h4 class="title is-6">w/ Motion Modes (Ours)</h4>
         </div>
       </div>
-      <div class="columns has-text-centered">
+      <div class="columns has-text-centered is-hidden-mobile">
         <div class="column is-one-fifth">
           <h5 class="title is-7"><b>Image</b></h5>
         </div>
@@ -1235,80 +1260,101 @@
         </div>
       </div>
   
-      <!-- Row 1 for Image to Video -->
-      <div class="columns">
+      <!-- Row 1 -->
+      <div class="columns is-multiline has-text-centered">
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>Input</b></h5>
           <img src="applications/image_to_video/row1_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>User Drag</b></h5>
           <img src="applications/image_to_video/row1_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/o Motion Modes</b></h5>
           <img src="applications/image_to_video/row1_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>Snapped Drag</b></h5>
           <img src="applications/image_to_video/row1_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/ Motion Modes (Ours)</b></h5>
           <img src="applications/image_to_video/row1_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
         </div>
       </div>
 
-
-      <div class="columns">
+      <!-- Row 2 -->
+      <div class="columns is-multiline has-text-centered">
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row2_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>Input</b></h5>
+          <img src="applications/image_to_video/row2_image.jpg" alt="Row 2 - Image" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row2_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>User Drag</b></h5>
+          <img src="applications/image_to_video/row2_user_drag.png" alt="Row 2 - User Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row2_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/o Motion Modes</b></h5>
+          <img src="applications/image_to_video/row2_wo_mm.gif" alt="Row 2 - w/o MM" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row2_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>Snapped Drag</b></h5>
+          <img src="applications/image_to_video/row2_snapped_drag.png" alt="Row 2 - Snapped Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row2_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
-        </div>
-      </div>
-
-      <div class="columns">
-        <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row4_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
-        </div>
-        <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row4_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
-        </div>
-        <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row4_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
-        </div>
-        <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row4_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
-        </div>
-        <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row4_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/ Motion Modes (Ours)</b></h5>
+          <img src="applications/image_to_video/row2_output.gif" alt="Row 2 - Output" style="width: 100%; height: auto;">
         </div>
       </div>
 
-      <div class="columns">
+      <!-- Row 4 -->
+      <div class="columns is-multiline has-text-centered">
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row5_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>Input</b></h5>
+          <img src="applications/image_to_video/row4_image.jpg" alt="Row 4 - Image" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row5_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>User Drag</b></h5>
+          <img src="applications/image_to_video/row4_user_drag.png" alt="Row 4 - User Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row5_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/o Motion Modes</b></h5>
+          <img src="applications/image_to_video/row4_wo_mm.gif" alt="Row 4 - w/o MM" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row5_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>Snapped Drag</b></h5>
+          <img src="applications/image_to_video/row4_snapped_drag.png" alt="Row 4 - Snapped Drag" style="width: 100%; height: auto;">
         </div>
         <div class="column is-one-fifth">
-          <img src="applications/image_to_video/row5_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/ Motion Modes (Ours)</b></h5>
+          <img src="applications/image_to_video/row4_output.gif" alt="Row 4 - Output" style="width: 100%; height: auto;">
         </div>
       </div>
 
+      <!-- Row 5 -->
+      <div class="columns is-multiline has-text-centered">
+        <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>Input</b></h5>
+          <img src="applications/image_to_video/row5_image.jpg" alt="Row 5 - Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>User Drag</b></h5>
+          <img src="applications/image_to_video/row5_user_drag.png" alt="Row 5 - User Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/o Motion Modes</b></h5>
+          <img src="applications/image_to_video/row5_wo_mm.gif" alt="Row 5 - w/o MM" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>Snapped Drag</b></h5>
+          <img src="applications/image_to_video/row5_snapped_drag.png" alt="Row 5 - Snapped Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7 is-hidden-desktop"><b>w/ Motion Modes (Ours)</b></h5>
+          <img src="applications/image_to_video/row5_output.gif" alt="Row 5 - Output" style="width: 100%; height: auto;">
+        </div>
+      </div>
 
 
 
