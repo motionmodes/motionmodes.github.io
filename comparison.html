@@ -1,0 +1,558 @@
+<!-- BEGIN: results_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Motion Modes Comparison with Baselines</title>
+</head>
+<style>
+table { 
+    table-layout:fixed;
+    width:100%;
+}
+img {
+    max-height:100%;
+    max-width:100%;
+}
+thead th {
+    top: 0;
+    position: sticky;
+    z-index: 20;
+    background-color: white;
+}
+td {
+    text-align: center;
+    vertical-align: top;
+}
+</style>
+<body>
+    <table>
+        <thead>
+            <tr>
+                
+                <th>Input</th>
+                
+                <th>MotionModes (ours)</th>
+                
+                <th>Prompt Gen.</th>
+                
+                <th>ControlNet</th>
+                
+                <th>Random Arrows</th>
+                
+                <th>Random Noise</th>
+                
+                <th>FPS Noise</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                
+                <td><img src="comparison/dolphin/Input.gif"></td>
+                
+                <td><img src="comparison/dolphin/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/dolphin/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/dolphin/ControlNet.gif"></td>
+                
+                <td><img src="comparison/dolphin/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/dolphin/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/dolphin/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/door4/Input.gif"></td>
+                
+                <td><img src="comparison/door4/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/door4/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/door4/ControlNet.gif"></td>
+                
+                <td><img src="comparison/door4/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/door4/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/door4/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/drawer_test/Input.gif"></td>
+                
+                <td><img src="comparison/drawer_test/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/drawer_test/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/drawer_test/ControlNet.gif"></td>
+                
+                <td><img src="comparison/drawer_test/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/drawer_test/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/drawer_test/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/drawer_test2/Input.gif"></td>
+                
+                <td><img src="comparison/drawer_test2/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/drawer_test2/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/drawer_test2/ControlNet.gif"></td>
+                
+                <td><img src="comparison/drawer_test2/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/drawer_test2/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/drawer_test2/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/flag2/Input.gif"></td>
+                
+                <td><img src="comparison/flag2/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/flag2/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/flag2/ControlNet.gif"></td>
+                
+                <td><img src="comparison/flag2/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/flag2/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/flag2/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/frame_0001/Input.gif"></td>
+                
+                <td><img src="comparison/frame_0001/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/frame_0001/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/frame_0001/ControlNet.gif"></td>
+                
+                <td><img src="comparison/frame_0001/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/frame_0001/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/frame_0001/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/lion_roar/Input.gif"></td>
+                
+                <td><img src="comparison/lion_roar/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/lion_roar/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/lion_roar/ControlNet.gif"></td>
+                
+                <td><img src="comparison/lion_roar/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/lion_roar/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/lion_roar/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/monkey/Input.gif"></td>
+                
+                <td><img src="comparison/monkey/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/monkey/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/monkey/ControlNet.gif"></td>
+                
+                <td><img src="comparison/monkey/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/monkey/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/monkey/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/ocean_wave/Input.gif"></td>
+                
+                <td><img src="comparison/ocean_wave/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/ocean_wave/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/ocean_wave/ControlNet.gif"></td>
+                
+                <td><img src="comparison/ocean_wave/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/ocean_wave/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/ocean_wave/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/river2/Input.gif"></td>
+                
+                <td><img src="comparison/river2/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/river2/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/river2/ControlNet.gif"></td>
+                
+                <td><img src="comparison/river2/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/river2/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/river2/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/cat/Input.gif"></td>
+                
+                <td><img src="comparison/cat/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/cat/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/cat/ControlNet.gif"></td>
+                
+                <td><img src="comparison/cat/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/cat/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/cat/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/top/Input.gif"></td>
+                
+                <td><img src="comparison/top/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/top/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/top/ControlNet.gif"></td>
+                
+                <td><img src="comparison/top/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/top/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/top/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/train/Input.gif"></td>
+                
+                <td><img src="comparison/train/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/train/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/train/ControlNet.gif"></td>
+                
+                <td><img src="comparison/train/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/train/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/train/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/book2/Input.gif"></td>
+                
+                <td><img src="comparison/book2/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/book2/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/book2/ControlNet.gif"></td>
+                
+                <td><img src="comparison/book2/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/book2/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/book2/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/butterfly/Input.gif"></td>
+                
+                <td><img src="comparison/butterfly/MotionModes_ours.gif"></td>
+                
+                <td><img src="comparison/butterfly/Prompt_Gen.gif"></td>
+                
+                <td><img src="comparison/butterfly/ControlNet.gif"></td>
+                
+                <td><img src="comparison/butterfly/Random_Arrows.gif"></td>
+                
+                <td><img src="comparison/butterfly/Random_Noise.gif"></td>
+                
+                <td><img src="comparison/butterfly/FPS_Noise.gif"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/cup2/Input.png"></td>
+                
+                <td><img src="comparison/cup2/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/cup2/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/cup2/ControlNet.png"></td>
+                
+                <td><img src="comparison/cup2/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/cup2/Random_Noise.png"></td>
+                
+                <td><img src="comparison/cup2/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/cup3/Input.png"></td>
+                
+                <td><img src="comparison/cup3/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/cup3/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/cup3/ControlNet.png"></td>
+                
+                <td><img src="comparison/cup3/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/cup3/Random_Noise.png"></td>
+                
+                <td><img src="comparison/cup3/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/potted_plant/Input.png"></td>
+                
+                <td><img src="comparison/potted_plant/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/potted_plant/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/potted_plant/ControlNet.png"></td>
+                
+                <td><img src="comparison/potted_plant/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/potted_plant/Random_Noise.png"></td>
+                
+                <td><img src="comparison/potted_plant/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/tank/Input.png"></td>
+                
+                <td><img src="comparison/tank/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/tank/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/tank/ControlNet.png"></td>
+                
+                <td><img src="comparison/tank/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/tank/Random_Noise.png"></td>
+                
+                <td><img src="comparison/tank/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/table_laptop/Input.png"></td>
+                
+                <td><img src="comparison/table_laptop/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/table_laptop/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/table_laptop/ControlNet.png"></td>
+                
+                <td><img src="comparison/table_laptop/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/table_laptop/Random_Noise.png"></td>
+                
+                <td><img src="comparison/table_laptop/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/steering_wheel/Input.png"></td>
+                
+                <td><img src="comparison/steering_wheel/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/steering_wheel/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/steering_wheel/ControlNet.png"></td>
+                
+                <td><img src="comparison/steering_wheel/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/steering_wheel/Random_Noise.png"></td>
+                
+                <td><img src="comparison/steering_wheel/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/windmill2/Input.png"></td>
+                
+                <td><img src="comparison/windmill2/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/windmill2/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/windmill2/ControlNet.png"></td>
+                
+                <td><img src="comparison/windmill2/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/windmill2/Random_Noise.png"></td>
+                
+                <td><img src="comparison/windmill2/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/soccer_grass/Input.png"></td>
+                
+                <td><img src="comparison/soccer_grass/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/soccer_grass/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/soccer_grass/ControlNet.png"></td>
+                
+                <td><img src="comparison/soccer_grass/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/soccer_grass/Random_Noise.png"></td>
+                
+                <td><img src="comparison/soccer_grass/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/basketball_basket/Input.png"></td>
+                
+                <td><img src="comparison/basketball_basket/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/basketball_basket/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/basketball_basket/ControlNet.png"></td>
+                
+                <td><img src="comparison/basketball_basket/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/basketball_basket/Random_Noise.png"></td>
+                
+                <td><img src="comparison/basketball_basket/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/boat_river/Input.png"></td>
+                
+                <td><img src="comparison/boat_river/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/boat_river/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/boat_river/ControlNet.png"></td>
+                
+                <td><img src="comparison/boat_river/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/boat_river/Random_Noise.png"></td>
+                
+                <td><img src="comparison/boat_river/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/chair/Input.png"></td>
+                
+                <td><img src="comparison/chair/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/chair/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/chair/ControlNet.png"></td>
+                
+                <td><img src="comparison/chair/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/chair/Random_Noise.png"></td>
+                
+                <td><img src="comparison/chair/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/chair2/Input.png"></td>
+                
+                <td><img src="comparison/chair2/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/chair2/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/chair2/ControlNet.png"></td>
+                
+                <td><img src="comparison/chair2/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/chair2/Random_Noise.png"></td>
+                
+                <td><img src="comparison/chair2/FPS_Noise.png"></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><img src="comparison/clock_hands/Input.png"></td>
+                
+                <td><img src="comparison/clock_hands/MotionModes_ours.png"></td>
+                
+                <td><img src="comparison/clock_hands/Prompt_Gen.png"></td>
+                
+                <td><img src="comparison/clock_hands/ControlNet.png"></td>
+                
+                <td><img src="comparison/clock_hands/Random_Arrows.png"></td>
+                
+                <td><img src="comparison/clock_hands/Random_Noise.png"></td>
+                
+                <td><img src="comparison/clock_hands/FPS_Noise.png"></td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
+</body>
+</html>
+<!-- END: results_template.html -->

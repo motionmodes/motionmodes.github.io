@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Motion Modes is the first training-free method to generate multiple plausible yet distinct motions for a given
+    object, disentangled from the motion of other objects, camera and other scene changes, from a single input image.">
+  <meta name="keywords" content="Motion Modes, Motion, Diffusion Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motion Modes: What Could Happen Next?</title>
+
+  <meta property="og:image" content="resources/og_image" />
+  <meta property="og:title"
+    content="Motion Modes: What Could Happen Next?" />
+  <meta property="og:description"
+    content="Motion Modes is the first training-free method to generate multiple plausible yet distinct motions for a given
+    object, disentangled from the motion of other objects, camera and other scene changes, from a single input image." />
+  <!-- Twitter automatically scrapes this. Go to https://cards-dev.twitter.com/validator?
+      if you update and want to force Twitter to re-scrape. -->
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:title"
+    content="Motion Modes:What Could Happen Next?" />
+  <meta property="twitter:description"
+    content="Motion Modes is the first training-free method to generate multiple plausible yet distinct motions for a given
+    object, disentangled from the motion of other objects, camera and other scene changes, from a single input image." />
+  <!-- <meta property="twitter:image" content="resources/og_image" /> -->
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-VFNFH9CKNX');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <!-- <script src="./static/js/index.js"></script> -->
+  <style>
+    #teaser-carousel img {
+      max-width: 200px; /* Adjust width as needed */
+      max-height: 150px; /* Adjust height as needed */
+      margin: auto; /* Center images */
+      display: block; /* Ensures proper centering */
+    }
+  
+    #teaser-carousel .columns {
+      display: flex;
+      justify-content: center; /* Center all columns in the carousel */
+      flex-wrap: wrap; /* Ensure images adjust responsively */
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <style>
+    /* Reduce the gap below headings */
+
+    /* Reduce padding within the hero section */
+    .hero-body {
+      padding-bottom: 1rem; /* Tighten the spacing between title and content */
+    }
+  
+    /* Optional: Adjust section top padding if needed */
+    section.section {
+      padding-top: 2rem; /* Slightly reduce section top padding */
+    } 
+  </style>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="navbar-menu">
+          <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                Full Results
+              </a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item" href="comparison.html">
+                  Qualitative Comparisons
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <br>
+
+
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-3 publication-title" style="font-size: 2.2rem;">
+              Motion Modes: What Could Happen Next?</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+ 
+      <div class="content has-text-justified">
+        <p>
+          <b>Motion Modes</b> is the first training-free method to generate multiple plausible yet distinct motions for a given
+          object, disentangled from the motion of other objects, camera and other scene changes, from a single input image.
+        </p>
+      </div>      
+
+      <!-- Main Heading -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-5">What are the different ways the object could move?</h2>
+        </div>
+      </div>
+  
+      <!-- Carousel -->
+      <div id="teaser-carousel" class="carousel">
+  
+        <!-- Slide 1: Teaser 1 -->
+        <div class="carousel-item">
+          <!-- Teaser Image -->
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-one-third">
+              <img src="teaser/teaser1.jpg" alt="Teaser 1">
+              <!-- <p class="has-text-centered">Teaser 1</p> -->
+            </div>
+          </div>
+  
+          <!-- Our Method -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <h4 class="has-text-centered"><b>Motion Modes (Ours)</b></h4>
+            </div>
+          </div>          
+          <div class="columns">
+            <div class="column is-one-third">
+              <img src="teaser/teaser1_method1.gif" alt="Teaser 1 - Our Method 1">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser1_method2.gif" alt="Teaser 1 - Our Method 2">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser1_method3.gif" alt="Teaser 1 - Our Method 3">
+            </div>
+          </div>
+
+  
+          <!-- Baseline -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <h4 class="has-text-centered"><b>Random Sampling (Baseline)</b></h4>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column is-one-third">
+              <img src="teaser/teaser1_baseline1.gif" alt="Teaser 1 - Baseline 1">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser1_baseline2.gif" alt="Teaser 1 - Baseline 2">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser1_baseline3.gif" alt="Teaser 1 - Baseline 3">
+            </div>
+          </div>
+
+
+        </div>
+  
+        <!-- Slide 2: Teaser 2 -->
+        <div class="carousel-item">
+          <!-- Teaser Image -->
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-one-third">
+              <img src="teaser/teaser2.jpg" alt="Teaser 2">
+              <!-- <p class="has-text-centered">Teaser 2</p> -->
+            </div>
+          </div>
+  
+          <!-- Our Method -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <h4 class="has-text-centered"><b>Motion Modes (Ours)</b></h4>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column is-one-third">
+              <img src="teaser/teaser2_method1.gif" alt="Teaser 2 - Our Method 1">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser2_method2.gif" alt="Teaser 2 - Our Method 2">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser2_method3.gif" alt="Teaser 2 - Our Method 3">
+            </div>
+          </div>
+
+  
+          <!-- Baseline -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <h4 class="has-text-centered"><b>Random Sampling (Baseline)</b></h4>
+            </div>
+          </div>          
+          <div class="columns">
+            <div class="column is-one-third">
+              <img src="teaser/teaser2_baseline1.gif" alt="Teaser 2 - Baseline 1">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser2_baseline2.gif" alt="Teaser 2 - Baseline 2">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser2_baseline3.gif" alt="Teaser 2 - Baseline 3">
+            </div>
+          </div>
+
+
+        </div>
+
+
+        <div class="carousel-item">
+          <!-- Teaser Image -->
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-one-third">
+              <img src="teaser/teaser3.jpg" alt="Teaser 2">
+              <!-- <p class="has-text-centered">Teaser 2</p> -->
+            </div>
+          </div>
+  
+          <!-- Our Method -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <h4 class="has-text-centered"><b>Motion Modes (Ours)</b></h4>
+            </div>
+          </div>          
+          <div class="columns">
+            <div class="column is-one-third">
+              <img src="teaser/teaser3_method1.gif" alt="Teaser 2 - Our Method 1">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser3_method2.gif" alt="Teaser 2 - Our Method 2">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser3_method3.gif" alt="Teaser 2 - Our Method 3">
+            </div>
+          </div>
+
+  
+          <!-- Baseline -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <h4 class="has-text-centered"><b>Random Sampling (Baseline)</b></h4>
+            </div>
+          </div>          
+          <div class="columns">
+            <div class="column is-one-third">
+              <img src="teaser/teaser3_baseline1.gif" alt="Teaser 2 - Baseline 1">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser3_baseline2.gif" alt="Teaser 2 - Baseline 2">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser3_baseline3.gif" alt="Teaser 2 - Baseline 3">
+            </div>
+          </div>
+
+
+        </div>    
+
+        
+        <div class="carousel-item">
+          <!-- Teaser Image -->
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-one-third">
+              <img src="teaser/teaser4.jpg" alt="Teaser 2">
+              <!-- <p class="has-text-centered">Teaser 2</p> -->
+            </div>
+          </div>
+  
+          <!-- Our Method -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <h4 class="has-text-centered"><b>Motion Modes (Ours)</b></h4>
+            </div>
+          </div>          
+          <div class="columns">
+            <div class="column is-one-third">
+              <img src="teaser/teaser4_method1.gif" alt="Teaser 2 - Our Method 1">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser4_method2.gif" alt="Teaser 2 - Our Method 2">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser4_method3.gif" alt="Teaser 2 - Our Method 3">
+            </div>
+          </div>
+
+  
+          <!-- Baseline -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <h4 class="has-text-centered"><b>Random Sampling (Baseline)</b></h4>
+            </div>
+          </div>          
+          <div class="columns">
+            <div class="column is-one-third">
+              <img src="teaser/teaser4_baseline1.gif" alt="Teaser 2 - Baseline 1">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser4_baseline2.gif" alt="Teaser 2 - Baseline 2">
+            </div>
+            <div class="column is-one-third">
+              <img src="teaser/teaser4_baseline3.gif" alt="Teaser 2 - Baseline 3">
+            </div>
+          </div>
+
+
+        </div>
+    
+
+        <!-- Add More Slides as Needed -->
+  
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      bulmaCarousel.attach('#teaser-carousel', {
+        slidesToScroll: 1, // Scroll one slide at a time
+        slidesToShow: 1,   // Show only one slide
+        pagination: false,  // Enable pagination dots
+        infinite: true,    // Loop slides infinitely
+        centerMode: false, // Disable peeking at edges
+      });
+    });
+  </script>
+
+<style>
+  #teaser-carousel {
+    overflow: hidden; /* Hide anything outside the visible carousel area */
+  }
+
+  .carousel-item {
+    width: 75%; /* Ensure each slide takes up the full width */
+    margin: 0 auto; /* Center the slide */
+  }
+</style>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <p>Click <a href="comparison.html">here</a> to view an extensive qualitative comparison to several baselines.<p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Categorized Results</h2>
+        </div>
+      </div>
+      
+      <!-- Animals Section -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h3 class="title is-5">Animals</h3>
+        </div>
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Animals/butterfly_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Animals/butterfly_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Animals/butterfly_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/butterfly_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/butterfly_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/butterfly_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cat_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cat_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cat_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cat_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cat_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cat_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cheetah_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cheetah_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cheetah_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cheetah_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cheetah_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/cheetah_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <!-- <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div> -->
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_roar_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_roar_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_roar_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_roar_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_roar_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/lion_roar_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Animals/monkey_sit_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Animals/monkey_sit_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Animals/monkey_sit_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/monkey_sit_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/monkey_sit_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Animals/monkey_sit_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <!-- Articulated objects Section -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h3 class="title is-5">Articulated objects</h3>
+        </div>
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/chair_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/chair_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/chair_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/chair_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/chair_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/chair_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/drawer_test2_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/drawer_test2_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/drawer_test2_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/drawer_test2_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth"></div>
+        
+        <div class="column is-one-sixth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/table_laptop_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/table_laptop_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/table_laptop_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/table_laptop_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/table_laptop_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Articulated Objects/table_laptop_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <!-- Automated vehicles Section -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h3 class="title is-5">Automated vehicles</h3>
+        </div>
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/boat_river_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/boat_river_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/boat_river_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/boat_river_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/boat_river_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/boat_river_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/helicopter_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/helicopter_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/helicopter_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/helicopter_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/helicopter_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/helicopter_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/jet_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/jet_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/jet_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/jet_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/jet_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/jet_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/tank_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/tank_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/tank_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/tank_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/tank_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Automated Vehicles/tank_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <!-- Complex flows Section -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h3 class="title is-5">Complex flows</h3>
+        </div>
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/fire_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/fire_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/fire_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/fire_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/fire_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/fire_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/flag2_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/flag2_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/flag2_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/flag2_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/flag2_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/flag2_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/ocean_wave_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/ocean_wave_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/ocean_wave_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/ocean_wave_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/ocean_wave_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/ocean_wave_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/river2_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/river2_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/river2_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/river2_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/river2_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Complex Flows/river2_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <!-- Rigid movement Section -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h3 class="title is-5">Rigid movement</h3>
+        </div>
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/basketball_basket_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/basketball_basket_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/basketball_basket_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/basketball_basket_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/basketball_basket_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/basketball_basket_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/cup2_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/cup2_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/cup2_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/cup2_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/cup2_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/cup2_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/pencil_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/pencil_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/pencil_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/pencil_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/pencil_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-sixth">
+          <img src="data/Rigid Movement/pencil_processed/4/animation.gif" alt="Animation GIF">
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+  
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              Predicting diverse object motions from a single static image remains challenging, as current video generation models
+              often entangle object movement with camera motion and other scene changes. While recent methods can predict specific
+              motions from motion arrow input, they rely on synthetic data and predefined motions, limiting their application to
+              complex scenes. <br><br>
+              
+              We introduce <b>Motion Modes</b>, a training-free approach that explores a pre-trained image-to-video
+              generator's latent distribution to discover various distinct and plausible motions focused on selected objects in static
+              images. We achieve this by employing a flow generator [1] guided by energy functions designed to disentangle object and
+              camera motion. <br><br>
+
+              Additionally, we use an energy inspired by particle guidance [2] to diversify the generated
+              motions, without requiring explicit training data. Experimental results demonstrate that <b>Motion Modes</b> generates realistic and
+              varied object animations, surpassing previous methods regarding plausibility and diversity.
+              Code will be released upon acceptance.
+            </p>
+          </div>
+        <!-- Image with Caption -->
+        <figure class="image is-centered">
+          <img src="resources/overview.png" alt="Method Overview" style="width: 100%;">
+          <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
+            <i> Our guidance energies encourage the generation of
+            smooth object motions that are disentangled from camera motions and distinct from previously generated motions in the denoising process.
+            Iterative sampling gives us a set of diverse motions.</i>
+   </figcaption>
+        </figure>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+  
+      <!-- Main Section Heading -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Applications</h2>
+        </div>
+      </div>
+
+
+      <div class="content has-text-justified">
+        <p>
+          Our discovered motions can be used to
+          <b>plausibly constrain, correct and complete drag-based user inputs</b> to image and video editing methods. Here, we
+          present results of motion completion on Image-to-Video models: Motion-I2V [1] and MOFA-Video [3].
+        </p>
+      </div>
+
+      <!-- Subsection: Image to Video -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h3 class="title is-5">MOFA-Video [3]</h3>
+        </div>
+      </div>
+  
+      <!-- Column Headers -->
+      <div class="columns has-text-centered">
+        <div class="column is-two-fifths">
+          <h4 class="title is-6">Input</h4>
+        </div>
+        <div class="column is-one-fifth">
+          <h4 class="title is-6">w/o Motion Modes</h4>
+        </div>
+        <div class="column is-two-fifths">
+          <h4 class="title is-6">w/ Motion Modes (Ours)</h4>
+        </div>
+      </div>
+      <div class="columns has-text-centered">
+        <div class="column is-one-fifth">
+          <h5 class="title is-7"><b>Image</b></h5>
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7"><b>User Drag</b></h5>
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7"><b>Output</b></h5>
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7"><b>Snapped Drag</b></h5>
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7"><b>Output</b></h5>
+        </div>
+      </div>
+  
+      <!-- Row 1 for Image to Video -->
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row1_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row1_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row1_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row1_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row1_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+        </div>
+      </div>
+
+
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row3_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row3_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row3_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row3_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row3_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row2_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row2_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row2_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row2_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row2_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row4_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row4_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row4_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row4_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video_MOFA/row4_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+        </div>
+      </div>  
+   
+
+      <!-- Subsection: Image to Video -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h3 class="title is-5">Motion-I2V [1]</h3>
+
+        </div>
+      </div>
+  
+      <!-- Column Headers -->
+      <div class="columns has-text-centered">
+        <div class="column is-two-fifths">
+          <h4 class="title is-6">Input</h4>
+        </div>
+        <div class="column is-one-fifth">
+          <h4 class="title is-6">w/o Motion Modes</h4>
+        </div>
+        <div class="column is-two-fifths">
+          <h4 class="title is-6">w/ Motion Modes (Ours)</h4>
+        </div>
+      </div>
+      <div class="columns has-text-centered">
+        <div class="column is-one-fifth">
+          <h5 class="title is-7"><b>Image</b></h5>
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7"><b>User Drag</b></h5>
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7"><b>Output</b></h5>
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7"><b>Snapped Drag</b></h5>
+        </div>
+        <div class="column is-one-fifth">
+          <h5 class="title is-7"><b>Output</b></h5>
+        </div>
+      </div>
+  
+      <!-- Row 1 for Image to Video -->
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row1_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row1_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row1_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row1_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row1_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+        </div>
+      </div>
+
+
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row2_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row2_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row2_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row2_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row2_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row4_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row4_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row4_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row4_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row4_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row5_image.jpg" alt="Row 1 - Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row5_user_drag.png" alt="Row 1 - User Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row5_wo_mm.gif" alt="Row 1 - w/o MM" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row5_snapped_drag.png" alt="Row 1 - Snapped Drag" style="width: 100%; height: auto;">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="applications/image_to_video/row5_output.gif" alt="Row 1 - Output" style="width: 100%; height: auto;">
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </section>
+  
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">References</h2>
+      <p>
+        [1] <i>Shi, X., Huang, Z., Wang, F.Y., Bian, W., Li, D., Zhang, Y., Zhang, M., Cheung, K.C., See, S., Qin, H. and Dai,
+          J., 2024, July. Motion-i2v: Consistent and controllable image-to-video generation with explicit motion modeling. In
+          ACM SIGGRAPH 2024 Conference Papers (pp. 1-11).</i> <br>
+        [2] <i>Corso, G., Xu, Y., De Bortoli, V., Barzilay, R. and Jaakkola, T., 2023. Particle guidance: non-iid diverse
+          sampling with diffusion models. arXiv preprint arXiv:2310.13102. [Appeared in ICLR 2024]</i> <br>
+        [3] <i>Niu, M., Cun, X., Wang, X., Zhang, Y., Shan, Y. and Zheng, Y., 2024. MOFA-Video: Controllable Image Animation via
+          Generative Motion Field Adaptions in Frozen Image-to-Video Diffusion Model. arXiv preprint arXiv:2405.20222. [Appeared
+          in ECCV 2024] </i> <br>
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    initComparisons();
+    window.addEventListener('resize', resetComparisons);
+    linkVideos(0);
+    linkVideos(1);
+  </script>
+  <script type="text/javascript" src="./static/js/slick.min.js"></script>
+  <script src="./static/js/main.js"></script>
+
+</body>
+
+</html>
