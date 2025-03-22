@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Motion Modes is the first training-free method to generate multiple plausible yet distinct motions for a given
+    object, disentangled from the motion of other objects, camera and other scene changes, from a single input image.">
+  <meta name="keywords" content="Motion Modes, Motion, Diffusion Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motion Modes: What Could Happen Next?</title>
+
+  <meta property="og:image" content="resources/og_image" />
+  <meta property="og:title"
+    content="Motion Modes: What Could Happen Next?" />
+  <meta property="og:description"
+    content="Motion Modes is the first training-free method to generate multiple plausible yet distinct motions for a given
+    object, disentangled from the motion of other objects, camera and other scene changes, from a single input image." />
+  <!-- Twitter automatically scrapes this. Go to https://cards-dev.twitter.com/validator?
+      if you update and want to force Twitter to re-scrape. -->
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:title"
+    content="Motion Modes:What Could Happen Next?" />
+  <meta property="twitter:description"
+    content="Motion Modes is the first training-free method to generate multiple plausible yet distinct motions for a given
+    object, disentangled from the motion of other objects, camera and other scene changes, from a single input image." />
+  <!-- <meta property="twitter:image" content="resources/og_image" /> -->
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-VFNFH9CKNX');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <!-- <script src="./static/js/index.js"></script> -->
+  <style>
+    #teaser-carousel img {
+      max-width: 200px; /* Adjust width as needed */
+      max-height: 150px; /* Adjust height as needed */
+      margin: auto; /* Center images */
+      display: block; /* Ensures proper centering */
+    }
+  
+    #teaser-carousel .columns {
+      display: flex;
+      justify-content: center; /* Center all columns in the carousel */
+      flex-wrap: wrap; /* Ensure images adjust responsively */
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <style>
+    /* Reduce the gap below headings */
+
+    /* Reduce padding within the hero section */
+    .hero-body {
+      padding-bottom: 1rem; /* Tighten the spacing between title and content */
+    }
+  
+    /* Optional: Adjust section top padding if needed */
+    section.section {
+      padding-top: 2rem; /* Slightly reduce section top padding */
+    } 
+  </style>
+
+
+  
+<section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Additional Qualitative Examples</h2>
+        </div>
+      </div>
+      
+      <!-- Additional qualitative results Section -->
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h3 class="title is-5">Additional qualitative results</h3>
+        </div>
+
+      </div> -->
+
+      
+      <div class="columns has-text-centered">
+        <div class="column is-one-fifth">
+          <h4 class="title is-6">Input</h4>
+        </div>
+        <div class="column is-one-fifth">
+          <h4 class="title is-6">Mask</h4>
+        </div>
+        <div class="column is-three-fifths">
+          <h4 class="title is-6">Motion Modes</h4>
+        </div>
+      </div>
+
+
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/bull_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/bull_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/bull_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/bull_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/bull_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/cat_alt_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/cat_alt_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/cat_alt_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/cat_alt_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/cat_alt_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/cloud_mountain_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/cloud_mountain_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/cloud_mountain_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/cloud_mountain_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/cloud_mountain_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/coffee_cup_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/coffee_cup_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/coffee_cup_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/coffee_cup_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/coffee_cup_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/croc_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/croc_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/croc_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/croc_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/croc_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/flag_green_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/flag_green_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/flag_green_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/flag_green_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/flag_green_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/golf_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/golf_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/golf_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/golf_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/golf_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/horse_grazing_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/horse_grazing_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/horse_grazing_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/horse_grazing_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/horse_grazing_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/lamp_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/lamp_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/lamp_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/lamp_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/lamp_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/boat_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/boat_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/boat_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/boat_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/boat_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+
+
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/leaf_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/leaf_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/leaf_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/leaf_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/leaf_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/lionn_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/lionn_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/lionn_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/lionn_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/lionn_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/microwave_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/microwave_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/microwave_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/microwave_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/microwave_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/panda_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/panda_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/panda_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/panda_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/panda_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/pen_paper_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/pen_paper_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/pen_paper_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/pen_paper_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/pen_paper_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/rat_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/rat_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/rat_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/rat_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/rat_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/river_side_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/river_side_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/river_side_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/river_side_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/river_side_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/sunflower_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/sunflower_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/sunflower_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/sunflower_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/sunflower_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/tiger_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/tiger_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/tiger_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/tiger_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/tiger_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/vase_processed/1/frames/0.jpg" alt="Frame">
+        </div>
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/vase_processed/1/masked_frames/0.png" alt="Masked Frame">
+        </div>
+      
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/vase_processed/1/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/vase_processed/2/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth">
+          <img src="extra_supp/Additional Qualitative Results/vase_processed/3/animation.gif" alt="Animation GIF">
+        </div>
+        
+        <div class="column is-one-fifth"></div>
+        
+      </div>
+      
+    </div>
+  </section>    
+
+  <script>
+    initComparisons();
+    window.addEventListener('resize', resetComparisons);
+    linkVideos(0);
+    linkVideos(1);
+  </script>
+  <script type="text/javascript" src="./static/js/slick.min.js"></script>
+  <script src="./static/js/main.js"></script>
+
+</body>
+
+</html>
